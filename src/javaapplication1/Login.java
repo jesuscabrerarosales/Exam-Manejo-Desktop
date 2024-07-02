@@ -227,7 +227,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AI home = new AI();
+        BIIA home = new BIIA();
         home.setLocationRelativeTo(null);
         this.setVisible(false);
         home.setVisible(true);
