@@ -5,18 +5,25 @@
 package javaapplication1;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
  * @author user
  */
 public class BIIA extends javax.swing.JFrame {
+    //private JLabel cuentaRegresiva;
+    private Timer timer;
+    private int timeRemaining = 2400; // Tiempo restante en segundos (40 minutos)
 
-    /**
-     * Creates new form Home
-     */
     public BIIA() {
         initComponents();
         this.setExtendedState(this.MAXIMIZED_BOTH);
@@ -29,8 +36,43 @@ public class BIIA extends javax.swing.JFrame {
         p1_bg.add(p1_button_bOption);
         p1_bg.add(p1_button_cOption);
         p1_bg.add(p1_button_dOption);
+        
+        
+        // Initialize cuentaRegresiva  = new JLabel("40:00");
+        cuentaRegresiva.setText("40:00");
+        cuentaRegresiva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // Ajusta la fuente según sea necesario
+        
+        
+        
+        // Agrega un WindowListener para iniciar el temporizador cuando se abre la ventana
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                startTimer();
+            }
+        });
     }
 
+    private void startTimer() {
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    int minutes = timeRemaining / 60;
+                    int seconds = timeRemaining % 60;
+                    cuentaRegresiva.setText(String.format("%02d:%02d", minutes, seconds));
+                } else {
+                    timer.stop();
+                    cuentaRegresiva.setText("00:00");
+                    // Aquí puedes agregar el código para cuando el tiempo se acabe, por ejemplo:
+                    JOptionPane.showMessageDialog(BIIA.this, "El tiempo se ha terminado.");
+                }
+            }
+        });
+        timer.start();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +100,7 @@ public class BIIA extends javax.swing.JFrame {
         p1_btn_avanzar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        cuentaRegresiva = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -164,6 +207,7 @@ public class BIIA extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(228, 25, 25));
         jLabel5.setText("Tiempo restante:");
 
@@ -173,15 +217,19 @@ public class BIIA extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(199, 199, 199))
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cuentaRegresiva, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                    .addComponent(cuentaRegresiva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel5.setBackground(new java.awt.Color(228, 25, 25));
@@ -269,6 +317,7 @@ public class BIIA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cuentaRegresiva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

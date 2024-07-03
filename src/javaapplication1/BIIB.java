@@ -4,6 +4,7 @@
  */
 package javaapplication1;
 
+import java.awt.BorderLayout;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -25,10 +26,20 @@ public class BIIB extends javax.swing.JFrame {
         jLabel3.setIcon(fnd2);
         this.repaint();
         
-        p1_bg.add(p1_button_aOption);
-        p1_bg.add(p1_button_bOption);
-        p1_bg.add(p1_button_cOption);
-        p1_bg.add(p1_button_dOption);
+        // Inicializa y configura questArea
+        //questArea = new JPanel(new BorderLayout());
+        getContentPane().add(questContent, BorderLayout.CENTER);
+        
+        // Inicializa el primer panel de preguntas
+        quest01 pregunta_01 = new quest01();
+        questContent.add(pregunta_01, BorderLayout.CENTER);
+        
+        
+        //quest01 pregunta_01=new quest01();
+        //questArea.removeAll();
+        //questArea.add(pregunta_01,BorderLayout.CENTER);
+        //questArea.revalidate();
+        //questArea.repaint();
     }
 
     /**
@@ -48,14 +59,8 @@ public class BIIB extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        quest1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        p1_button_aOption = new javax.swing.JRadioButton();
-        p1_button_bOption = new javax.swing.JRadioButton();
-        p1_button_cOption = new javax.swing.JRadioButton();
-        p1_button_dOption = new javax.swing.JRadioButton();
-        p1_btn_volver = new javax.swing.JButton();
-        p1_btn_avanzar = new javax.swing.JButton();
+        questArea = new javax.swing.JPanel();
+        questContent = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -127,7 +132,7 @@ public class BIIB extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(373, 373, 373)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,30 +142,12 @@ public class BIIB extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        quest1.setBackground(new java.awt.Color(255, 255, 255));
-        quest1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        questArea.setBackground(new java.awt.Color(255, 255, 255));
+        questArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setText("1.- Respecto de los dispositivos de control o regulación del tránsito:");
-        quest1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 944, 40));
-
-        p1_button_aOption.setText("a) Solo los peatones están obligados a su obediencia.");
-        p1_button_aOption.setBorder(null);
-        quest1.add(p1_button_aOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, -1, -1));
-
-        p1_button_bOption.setText("b) Los conductores y los peatones están obligados a su obediencia, salvo instrucción de la Policía Nacional del Perú  asignada al tránsito que indique lo contrario.");
-        quest1.add(p1_button_bOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 126, -1, -1));
-
-        p1_button_cOption.setText("c) Solo los conductores están obligados a su obediencia. ");
-        quest1.add(p1_button_cOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 165, -1, -1));
-
-        p1_button_dOption.setText("d) Los conductores están obligados a su obediencia, aun cuando la Policía Nacional del Perú asignada al tránsito  pueda indicar lo contrario. ");
-        quest1.add(p1_button_dOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 198, -1, -1));
-
-        p1_btn_volver.setText("jButton1");
-        quest1.add(p1_btn_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 293, -1, -1));
-
-        p1_btn_avanzar.setText("jButton2");
-        quest1.add(p1_btn_avanzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 293, -1, -1));
+        questContent.setBackground(new java.awt.Color(255, 255, 255));
+        questContent.setLayout(new java.awt.BorderLayout());
+        questArea.add(questContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 830, 310));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -208,7 +195,7 @@ public class BIIB extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(quest1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, 1284, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -222,7 +209,7 @@ public class BIIB extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(quest1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -279,18 +266,12 @@ public class BIIB extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.ButtonGroup p1_bg;
-    private javax.swing.JButton p1_btn_avanzar;
-    private javax.swing.JButton p1_btn_volver;
-    private javax.swing.JRadioButton p1_button_aOption;
-    private javax.swing.JRadioButton p1_button_bOption;
-    private javax.swing.JRadioButton p1_button_cOption;
-    private javax.swing.JRadioButton p1_button_dOption;
-    private javax.swing.JPanel quest1;
+    private javax.swing.JPanel questArea;
+    private javax.swing.JPanel questContent;
     // End of variables declaration//GEN-END:variables
 }
