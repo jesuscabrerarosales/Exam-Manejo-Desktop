@@ -6,18 +6,30 @@ package javaapplication1;
 
 import java.awt.BorderLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.lang.reflect.InvocationTargetException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
  * @author user
  */
 public class BIIB extends javax.swing.JFrame {
+    private Timer timer;
+    private int timeRemaining = 2400; // Tiempo restante en segundos (40 minutos)
 
-    /**
-     * Creates new form Home
-     */
+    private int currentPanelIndex = 0;
+    private final Class<?>[] panelClasses = {
+        quest01.class,quest02.class, quest03.class
+    };
+    
     public BIIB() {
         initComponents();
         this.setExtendedState(this.MAXIMIZED_BOTH);
@@ -25,23 +37,66 @@ public class BIIB extends javax.swing.JFrame {
         Icon fnd2 = new ImageIcon(img2.getImage().getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_DEFAULT));
         jLabel3.setIcon(fnd2);
         this.repaint();
-        
-        // Inicializa y configura questArea
-        //questArea = new JPanel(new BorderLayout());
-        getContentPane().add(questContent, BorderLayout.CENTER);
-        
-        // Inicializa el primer panel de preguntas
-        quest01 pregunta_01 = new quest01();
-        questContent.add(pregunta_01, BorderLayout.CENTER);
+        // Initialize cuentaRegresiva  = new JLabel("40:00");
+        cuentaRegresiva.setText("40:00");
+        cuentaRegresiva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // Ajusta la fuente según sea necesario
         
         
-        //quest01 pregunta_01=new quest01();
-        //questArea.removeAll();
-        //questArea.add(pregunta_01,BorderLayout.CENTER);
-        //questArea.revalidate();
-        //questArea.repaint();
+        
+        // Agrega un WindowListener para iniciar el temporizador cuando se abre la ventana
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+                startTimer();
+            }
+        });
+        
+        
+        showNextPanel();
+    }
+    
+    private void startTimer() {
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    int minutes = timeRemaining / 60;
+                    int seconds = timeRemaining % 60;
+                    cuentaRegresiva.setText(String.format("%02d:%02d", minutes, seconds));
+                } else {
+                    timer.stop();
+                    cuentaRegresiva.setText("00:00");
+                    // Aquí puedes agregar el código para cuando el tiempo se acabe, por ejemplo:
+                    JOptionPane.showMessageDialog(BIIB.this, "El tiempo se ha terminado.");
+                }
+            }
+        });
+        timer.start();
     }
 
+    private void showNextPanel() {
+        if (currentPanelIndex < panelClasses.length) {
+            try {
+                // Instanciar el siguiente panel
+                JPanel nextPanel = (JPanel) panelClasses[currentPanelIndex].getDeclaredConstructor().newInstance();
+                nextPanel.setSize(680, 420);
+                nextPanel.setLocation(0, 0);
+
+                // Actualizar questArea
+                questArea.removeAll();
+                questArea.add(nextPanel, BorderLayout.CENTER);
+                questArea.revalidate();
+                questArea.repaint();
+
+                // Incrementar el índice del panel
+                currentPanelIndex++;
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,13 +112,16 @@ public class BIIB extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        btnVolverB = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         questArea = new javax.swing.JPanel();
-        questContent = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        cuentaRegresiva = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JButton();
+        btnAvanzar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -85,6 +143,13 @@ public class BIIB extends javax.swing.JFrame {
 
         jLabel11.setText("PREGUNTAS:");
 
+        btnVolverB.setText("VOLVER");
+        btnVolverB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,7 +160,9 @@ public class BIIB extends javax.swing.JFrame {
                         .addGap(99, 99, 99)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(1, 1, 1)
+                        .addComponent(btnVolverB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -107,15 +174,20 @@ public class BIIB extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVolverB)))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(226, 24, 24));
@@ -143,11 +215,7 @@ public class BIIB extends javax.swing.JFrame {
         );
 
         questArea.setBackground(new java.awt.Color(255, 255, 255));
-        questArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        questContent.setBackground(new java.awt.Color(255, 255, 255));
-        questContent.setLayout(new java.awt.BorderLayout());
-        questArea.add(questContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 830, 310));
+        questArea.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -159,9 +227,11 @@ public class BIIB extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(1006, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(199, 199, 199))
+                .addGap(32, 32, 32)
+                .addComponent(cuentaRegresiva, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,6 +239,7 @@ public class BIIB extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addContainerGap(11, Short.MAX_VALUE))
+            .addComponent(cuentaRegresiva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel5.setBackground(new java.awt.Color(228, 25, 25));
@@ -184,6 +255,15 @@ public class BIIB extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
+        btnVolver.setText("jButton1");
+
+        btnAvanzar.setText("Avanzar");
+        btnAvanzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvanzarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,12 +271,20 @@ public class BIIB extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, 1284, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(btnVolver)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnAvanzar)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -205,17 +293,34 @@ public class BIIB extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnVolver)
+                            .addComponent(btnAvanzar))
+                        .addGap(100, 100, 100)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAvanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzarActionPerformed
+        showNextPanel();
+    }//GEN-LAST:event_btnAvanzarActionPerformed
+
+    private void btnVolverBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverBActionPerformed
+        MenuCategorias menu = new MenuCategorias();
+        menu.setLocationRelativeTo(null);
+        this.setVisible(false);
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnVolverBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +365,10 @@ public class BIIB extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvanzar;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnVolverB;
+    private javax.swing.JLabel cuentaRegresiva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -272,6 +381,5 @@ public class BIIB extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.ButtonGroup p1_bg;
     private javax.swing.JPanel questArea;
-    private javax.swing.JPanel questContent;
     // End of variables declaration//GEN-END:variables
 }

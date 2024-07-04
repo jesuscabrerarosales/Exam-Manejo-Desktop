@@ -227,10 +227,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        BIIA home = new BIIA();
-        home.setLocationRelativeTo(null);
+        MenuCategorias menu = new MenuCategorias();
+        menu.setLocationRelativeTo(null);
         this.setVisible(false);
-        home.setVisible(true);
+        menu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

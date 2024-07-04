@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="p2_bg">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -41,90 +45,64 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1167" max="32767" attributes="0"/>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" pref="944" max="-2" attributes="0"/>
-                          <Component id="p1_button_aOption" min="-2" max="-2" attributes="0"/>
-                          <Component id="p1_button_bOption" min="-2" max="-2" attributes="0"/>
-                          <Component id="p1_button_cOption" min="-2" max="-2" attributes="0"/>
-                          <Component id="p1_button_dOption" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="p1_btn_volver" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
-                              <Component id="p1_btn_avanzar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="p2_button_aOption" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="p2_button_bOption" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="p2_button_cOption" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="p2_button_dOption" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="180" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="526" max="32767" attributes="0"/>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jLabel6" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
-                      <Component id="p1_button_aOption" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="p1_button_bOption" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="p1_button_cOption" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="p1_button_dOption" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="74" pref="74" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="p1_btn_volver" min="-2" max="-2" attributes="0"/>
-                          <Component id="p1_btn_avanzar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="p2_button_aOption" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="p2_button_bOption" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="p2_button_cOption" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="p2_button_dOption" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="144" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JRadioButton" name="p1_button_dOption">
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="d) Los conductores est&#xe1;n obligados a su obediencia, aun cuando la Polic&#xed;a Nacional del Per&#xfa; asignada al tr&#xe1;nsito  pueda indicar lo contrario. "/>
+            <Property name="text" type="java.lang.String" value="2.- La se&#xf1;al vertical reglamentaria R-6 &#x201c;prohibido voltear a la izquierda&#x201d;, significa que:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="p1_btn_volver">
+        <Component class="javax.swing.JRadioButton" name="p2_button_aOption">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
+            <Property name="text" type="java.lang.String" value="a) Est&#xe1; prohibido voltear a la izquierda y, por lo tanto tambi&#xe9;n est&#xe1; prohibido el giro en U."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="p2_button_aOptionActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="p2_button_bOption">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="b) Est&#xe1; prohibido voltear a la izquierda, sin embargo, est&#xe1; permitido el giro en U. "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="p1_button_bOption">
+        <Component class="javax.swing.JRadioButton" name="p2_button_cOption">
           <Properties>
-            <Property name="text" type="java.lang.String" value="b) Los conductores y los peatones est&#xe1;n obligados a su obediencia, salvo instrucci&#xf3;n de la Polic&#xed;a Nacional del Per&#xfa;  asignada al tr&#xe1;nsito que indique lo contrario."/>
+            <Property name="text" type="java.lang.String" value="c) El &#xfa;nico sentido de desplazamiento es continuar de frente."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="p1_button_aOption">
+        <Component class="javax.swing.JRadioButton" name="p2_button_dOption">
           <Properties>
-            <Property name="text" type="java.lang.String" value="a) Solo los peatones est&#xe1;n obligados a su obediencia."/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="p1_btn_avanzar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jButton2"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="p1_button_cOption">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="c) Solo los conductores est&#xe1;n obligados a su obediencia. "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="2.- Respecto de los dispositivos de control o regulaci&#xf3;n del tr&#xe1;nsito:"/>
+            <Property name="text" type="java.lang.String" value="d)  Ninguna de las alternativas es correcta."/>
           </Properties>
         </Component>
       </SubComponents>

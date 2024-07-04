@@ -15,6 +15,10 @@ public class quest02 extends javax.swing.JPanel {
      */
     public quest02() {
         initComponents();
+        p2_bg.add(p2_button_aOption);
+        p2_bg.add(p2_button_bOption);
+        p2_bg.add(p2_button_cOption);
+        p2_bg.add(p2_button_dOption);
     }
 
     /**
@@ -26,74 +30,61 @@ public class quest02 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        p2_bg = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        p1_button_dOption = new javax.swing.JRadioButton();
-        p1_btn_volver = new javax.swing.JButton();
-        p1_button_bOption = new javax.swing.JRadioButton();
-        p1_button_aOption = new javax.swing.JRadioButton();
-        p1_btn_avanzar = new javax.swing.JButton();
-        p1_button_cOption = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        p2_button_aOption = new javax.swing.JRadioButton();
+        p2_button_bOption = new javax.swing.JRadioButton();
+        p2_button_cOption = new javax.swing.JRadioButton();
+        p2_button_dOption = new javax.swing.JRadioButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        p1_button_dOption.setText("d) Los conductores están obligados a su obediencia, aun cuando la Policía Nacional del Perú asignada al tránsito  pueda indicar lo contrario. ");
+        jLabel1.setText("2.- La señal vertical reglamentaria R-6 “prohibido voltear a la izquierda”, significa que:");
 
-        p1_btn_volver.setText("jButton1");
+        p2_button_aOption.setText("a) Está prohibido voltear a la izquierda y, por lo tanto también está prohibido el giro en U.");
+        p2_button_aOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                p2_button_aOptionActionPerformed(evt);
+            }
+        });
 
-        p1_button_bOption.setText("b) Los conductores y los peatones están obligados a su obediencia, salvo instrucción de la Policía Nacional del Perú  asignada al tránsito que indique lo contrario.");
+        p2_button_bOption.setText("b) Está prohibido voltear a la izquierda, sin embargo, está permitido el giro en U. ");
 
-        p1_button_aOption.setText("a) Solo los peatones están obligados a su obediencia.");
-        p1_button_aOption.setBorder(null);
+        p2_button_cOption.setText("c) El único sentido de desplazamiento es continuar de frente.");
 
-        p1_btn_avanzar.setText("jButton2");
-
-        p1_button_cOption.setText("c) Solo los conductores están obligados a su obediencia. ");
-
-        jLabel6.setText("2.- Respecto de los dispositivos de control o regulación del tránsito:");
+        p2_button_dOption.setText("d)  Ninguna de las alternativas es correcta.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1167, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(p1_button_aOption)
-                        .addComponent(p1_button_bOption)
-                        .addComponent(p1_button_cOption)
-                        .addComponent(p1_button_dOption)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(p1_btn_volver)
-                            .addGap(41, 41, 41)
-                            .addComponent(p1_btn_avanzar)))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(p2_button_aOption)
+                    .addComponent(p2_button_bOption)
+                    .addComponent(p2_button_cOption)
+                    .addComponent(p2_button_dOption))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(44, 44, 44)
-                    .addComponent(p1_button_aOption)
-                    .addGap(18, 18, 18)
-                    .addComponent(p1_button_bOption)
-                    .addGap(18, 18, 18)
-                    .addComponent(p1_button_cOption)
-                    .addGap(12, 12, 12)
-                    .addComponent(p1_button_dOption)
-                    .addGap(74, 74, 74)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(p1_btn_volver)
-                        .addComponent(p1_btn_avanzar))
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
+                .addComponent(p2_button_aOption)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(p2_button_bOption)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(p2_button_cOption)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(p2_button_dOption)
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -108,15 +99,18 @@ public class quest02 extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void p2_button_aOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2_button_aOptionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p2_button_aOptionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton p1_btn_avanzar;
-    private javax.swing.JButton p1_btn_volver;
-    private javax.swing.JRadioButton p1_button_aOption;
-    private javax.swing.JRadioButton p1_button_bOption;
-    private javax.swing.JRadioButton p1_button_cOption;
-    private javax.swing.JRadioButton p1_button_dOption;
+    private javax.swing.ButtonGroup p2_bg;
+    private javax.swing.JRadioButton p2_button_aOption;
+    private javax.swing.JRadioButton p2_button_bOption;
+    private javax.swing.JRadioButton p2_button_cOption;
+    private javax.swing.JRadioButton p2_button_dOption;
     // End of variables declaration//GEN-END:variables
 }
