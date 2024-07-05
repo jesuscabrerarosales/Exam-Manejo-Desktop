@@ -29,7 +29,11 @@ public class BIIA extends javax.swing.JFrame {
 
     private int currentPanelIndex = 0;
     private final Class<?>[] panelClasses = {
-        quest01.class,quest02.class, quest03.class
+        quest01.class,quest02.class, quest03.class, quest04.class, quest05.class, quest06.class, quest07.class, quest08.class
+            , quest09.class, quest10.class, quest11.class, quest12.class, quest13.class, quest14.class, quest15.class, quest16.class, quest17.class
+            , quest18.class, quest19.class, quest20.class, quest21.class, quest22.class, quest23.class, quest24.class, quest25.class, quest26.class
+            , quest27.class, quest28.class, quest29.class, quest30.class, quest31.class, quest32.class, quest33.class, quest34.class, quest35.class
+            , quest36.class, quest37.class, quest38.class, quest39.class, quest40.class
     };
     public BIIA() {
         initComponents();
