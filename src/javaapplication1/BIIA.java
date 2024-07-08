@@ -140,6 +140,8 @@ public class BIIA extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -159,6 +161,7 @@ public class BIIA extends javax.swing.JFrame {
         setExtendedState(6);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -181,10 +184,20 @@ public class BIIA extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("\n1.- Respecto de los dispositivos de control o regulación del \ntránsito:\n\n2.- La señal vertical reglamentaria R-6 “prohibido voltear a la \nizquierda”, significa que:\n\n3.- La señal vertical reglamentaria R-3 significa que:\n\n4.- En las vías, las marcas en el pavimento que son del tipo \ncentral discontinua y de color amarillo significan que:\n\n5.- El color ámbar o amarillo del semáforo significa que:\n\n6.- Los colores del semáforo tienen el siguiente significado: \nrojo:_____; ámbar o amarillo: _____; verde:___.\n\n7.- ¿Qué indica una flecha verde en un semáforo vehicular?\n\n8.- La siguiente señal vertical reglamentaria R-53:\n\n9.- Si llega a una intersección y visualiza el semáforo con una \nflecha roja hacia la izquierda y la luz circular verde prendidas \nal mismo tiempo, la acción correcta es:\n\n10.- Si llega a una intersección donde el semáforo muestra \nuna luz intermitente, qué afirmación es correcta:\n\n11.- ¿La luz intermitente roja es igual que una señal de PARE?\n\n12.- Al aproximarse a una intersección con giro permitido a la \nizquierda, la conducta correcta es:\n\n13.- Al cambiar de carril en una vía de un solo sentido con \nmúltiples carriles, ¿cuál es la conducta correcta?\n\n14.- Respecto a los cruces a nivel con vías férreas, señale la \nafirmación correcta:\n\n15.- Ante la señal de color rojo del semáforo y la indicación \nde continuar la marcha del efectivo de la Policía Nacional del \nPerú asignado al control del tránsito, corresponde:\n\n16.- Está prohibido estacionar un vehículo:\n\n17.- La siguiente señal vertical reglamentaria (R-29:\n\n18.- Se le impondrá el pago de una multa y no podrá obtener \nla licencia de conducir por 3 años a la persona que:\n\n 19.- En el supuesto que se encuentre manejando y un vehículo \nque tiene la intención de sobrepasarlo o adelantarlo lo alcance, \n¿qué debería hacer usted?\n\n20.- ¿Cuál de las siguientes afi rmaciones es correcta?\n\n21.- En la circulación vehicular, es correcto afi rmar que:\n\n22.- En caso de accidentes, el SOAT cubre los daños que sufren:\n\n23.- ¿Cuál de los siguientes seguros es exigible para conducir un \nvehículo automotor?\n\n24.- Cuándo es obligatorio darle preferencia de paso a un vehículo \nde emergencia o vehículo oficial:\n\n25.- Si por el carril por donde está conduciendo se aproxima a un \nvehículo de transporte escolar que se encuentra detenido, recogiendo \no dejando escolares ¿Qué debe hacer?\n\n26.- ¿Qué signifi ca un triángulo rojo de seguridad colocado en la calzada?\n\n27.- ¿En la conducción vehicular, existe excepción a la obligación de \nconservar la distancia obligatoria entre vehículos?\n\n28.- En intersecciones que no tienen señales de Pare, Ceda el Paso o \nSemáforo, ¿las vías de doble sentido tienen prioridad de paso respecto \na las vías de un solo sentido de igual clasificación?\n\n29.- Si usted se aproxima a una señal de PARE colocada verticalmente \no pintada en la vía, la acción correcta es:\n\n30.- ¿Cuál es la diferencia entre las señales P-2A y P-1A?\n\n31.- ¿Qué indica la señal R-30F?\n\n32.- ¿Que indica la siguiente señal R-23?\n\n33.- Si dos vehículos se aproximan simultáneamente a una intersección \nno regulada (sin señalización) procedentes de vías diferentes, ¿quién \ntiene preferencia de paso?\n\n34.- En una intersección no regulada (sin señalización) tiene preferencia \nde paso:\n\n35.- En una rotonda, tiene prioridad de paso el vehículo que:\n\n36.- El sobrepaso o adelantamiento de un vehículo en movimiento \nse efectúa, salvo excepciones, por la _________ retornando el vehículo \ndespués de la maniobra a su carril original.\n\n37.- Si un conductor está tomando medicamentos y por ello siente \nsueño ¿qué debe hacer?\n\n38.- Son documentos que deben portarse obligatoriamente, durante \nla conducción del vehículo, y exhibirse cuando la autoridad competente \nlo solicite:\n\n39.- La siguiente señal indica:\n\n40.- Al cambiar de dirección, un conductor debe:");
+        jScrollPane2.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -196,11 +209,9 @@ public class BIIA extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +227,8 @@ public class BIIA extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2))
         );
 
         jPanel2.setBackground(new java.awt.Color(226, 24, 24));
@@ -337,7 +349,7 @@ public class BIIA extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -446,6 +458,8 @@ public class BIIA extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.ButtonGroup p1_bg;
     private javax.swing.JButton p1_btn_volver;
     private javax.swing.JPanel questArea;

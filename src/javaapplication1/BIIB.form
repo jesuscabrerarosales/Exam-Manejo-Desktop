@@ -43,9 +43,9 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="btnVolver" min="-2" pref="85" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnAvanzar" min="-2" pref="82" max="-2" attributes="0"/>
@@ -62,23 +62,21 @@
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="questArea" min="-2" pref="372" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnAvanzar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="btnVolver" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnAvanzar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="116" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -95,6 +93,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel11" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -110,12 +112,9 @@
                               <Component id="jLabel2" min="-2" pref="137" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="jScrollPane1" alignment="0" min="-2" pref="451" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="87" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel11" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -138,7 +137,8 @@
                   <Component id="jLabel4" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel11" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace pref="342" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -188,6 +188,25 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverBActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <Properties>
+            <Property name="verticalScrollBarPolicy" type="int" value="22"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="&#xa;1.- Respecto de los dispositivos de control o regulaci&#xf3;n del &#xa;tr&#xe1;nsito:&#xa;&#xa;2.- La se&#xf1;al vertical reglamentaria R-6 &#x201c;prohibido voltear a la &#xa;izquierda&#x201d;, significa que:&#xa;&#xa;3.- La se&#xf1;al vertical reglamentaria R-3 significa que:&#xa;&#xa;4.- En las v&#xed;as, las marcas en el pavimento que son del tipo &#xa;central discontinua y de color amarillo significan que:&#xa;&#xa;5.- El color &#xe1;mbar o amarillo del sem&#xe1;foro significa que:&#xa;&#xa;6.- Los colores del sem&#xe1;foro tienen el siguiente significado: &#xa;rojo:_____; &#xe1;mbar o amarillo: _____; verde:___.&#xa;&#xa;7.- &#xbf;Qu&#xe9; indica una flecha verde en un sem&#xe1;foro vehicular?&#xa;&#xa;8.- La siguiente se&#xf1;al vertical reglamentaria R-53:&#xa;&#xa;9.- Si llega a una intersecci&#xf3;n y visualiza el sem&#xe1;foro con una &#xa;flecha roja hacia la izquierda y la luz circular verde prendidas &#xa;al mismo tiempo, la acci&#xf3;n correcta es:&#xa;&#xa;10.- Si llega a una intersecci&#xf3;n donde el sem&#xe1;foro muestra &#xa;una luz intermitente, qu&#xe9; afirmaci&#xf3;n es correcta:&#xa;&#xa;11.- &#xbf;La luz intermitente roja es igual que una se&#xf1;al de PARE?&#xa;&#xa;12.- Al aproximarse a una intersecci&#xf3;n con giro permitido a la &#xa;izquierda, la conducta correcta es:&#xa;&#xa;13.- Al cambiar de carril en una v&#xed;a de un solo sentido con &#xa;m&#xfa;ltiples carriles, &#xbf;cu&#xe1;l es la conducta correcta?&#xa;&#xa;14.- Respecto a los cruces a nivel con v&#xed;as f&#xe9;rreas, se&#xf1;ale la &#xa;afirmaci&#xf3;n correcta:&#xa;&#xa;15.- Ante la se&#xf1;al de color rojo del sem&#xe1;foro y la indicaci&#xf3;n &#xa;de continuar la marcha del efectivo de la Polic&#xed;a Nacional del &#xa;Per&#xfa; asignado al control del tr&#xe1;nsito, corresponde:&#xa;&#xa;16.- Est&#xe1; prohibido estacionar un veh&#xed;culo:&#xa;&#xa;17.- La siguiente se&#xf1;al vertical reglamentaria (R-29:&#xa;&#xa;18.- Se le impondr&#xe1; el pago de una multa y no podr&#xe1; obtener &#xa;la licencia de conducir por 3 a&#xf1;os a la persona que:&#xa;&#xa; 19.- En el supuesto que se encuentre manejando y un veh&#xed;culo &#xa;que tiene la intenci&#xf3;n de sobrepasarlo o adelantarlo lo alcance, &#xa;&#xbf;qu&#xe9; deber&#xed;a hacer usted?&#xa;&#xa;20.- &#xbf;Cu&#xe1;l de las siguientes afi rmaciones es correcta?&#xa;&#xa;21.- En la circulaci&#xf3;n vehicular, es correcto afi rmar que:&#xa;&#xa;22.- En caso de accidentes, el SOAT cubre los da&#xf1;os que sufren:&#xa;&#xa;23.- &#xbf;Cu&#xe1;l de los siguientes seguros es exigible para conducir un &#xa;veh&#xed;culo automotor?&#xa;&#xa;24.- Cu&#xe1;ndo es obligatorio darle preferencia de paso a un veh&#xed;culo &#xa;de emergencia o veh&#xed;culo oficial:&#xa;&#xa;25.- Si por el carril por donde est&#xe1; conduciendo se aproxima a un &#xa;veh&#xed;culo de transporte escolar que se encuentra detenido, recogiendo &#xa;o dejando escolares &#xbf;Qu&#xe9; debe hacer?&#xa;&#xa;26.- &#xbf;Qu&#xe9; signifi ca un tri&#xe1;ngulo rojo de seguridad colocado en la calzada?&#xa;&#xa;27.- &#xbf;En la conducci&#xf3;n vehicular, existe excepci&#xf3;n a la obligaci&#xf3;n de &#xa;conservar la distancia obligatoria entre veh&#xed;culos?&#xa;&#xa;28.- En intersecciones que no tienen se&#xf1;ales de Pare, Ceda el Paso o &#xa;Sem&#xe1;foro, &#xbf;las v&#xed;as de doble sentido tienen prioridad de paso respecto &#xa;a las v&#xed;as de un solo sentido de igual clasificaci&#xf3;n?&#xa;&#xa;29.- Si usted se aproxima a una se&#xf1;al de PARE colocada verticalmente &#xa;o pintada en la v&#xed;a, la acci&#xf3;n correcta es:&#xa;&#xa;30.- &#xbf;Cu&#xe1;l es la diferencia entre las se&#xf1;ales P-2A y P-1A?&#xa;&#xa;31.- &#xbf;Qu&#xe9; indica la se&#xf1;al R-30F?&#xa;&#xa;32.- &#xbf;Que indica la siguiente se&#xf1;al R-23?&#xa;&#xa;33.- Si dos veh&#xed;culos se aproximan simult&#xe1;neamente a una intersecci&#xf3;n &#xa;no regulada (sin se&#xf1;alizaci&#xf3;n) procedentes de v&#xed;as diferentes, &#xbf;qui&#xe9;n &#xa;tiene preferencia de paso?&#xa;&#xa;34.- En una intersecci&#xf3;n no regulada (sin se&#xf1;alizaci&#xf3;n) tiene preferencia &#xa;de paso:&#xa;&#xa;35.- En una rotonda, tiene prioridad de paso el veh&#xed;culo que:&#xa;&#xa;36.- El sobrepaso o adelantamiento de un veh&#xed;culo en movimiento &#xa;se efect&#xfa;a, salvo excepciones, por la _________ retornando el veh&#xed;culo &#xa;despu&#xe9;s de la maniobra a su carril original.&#xa;&#xa;37.- Si un conductor est&#xe1; tomando medicamentos y por ello siente &#xa;sue&#xf1;o &#xbf;qu&#xe9; debe hacer?&#xa;&#xa;38.- Son documentos que deben portarse obligatoriamente, durante &#xa;la conducci&#xf3;n del veh&#xed;culo, y exhibirse cuando la autoridad competente &#xa;lo solicite:&#xa;&#xa;39.- La siguiente se&#xf1;al indica:&#xa;&#xa;40.- Al cambiar de direcci&#xf3;n, un conductor debe:"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -269,7 +288,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="1006" max="32767" attributes="0"/>
+                  <EmptySpace pref="860" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="cuentaRegresiva" min="-2" pref="106" max="-2" attributes="0"/>
