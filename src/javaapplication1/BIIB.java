@@ -59,7 +59,7 @@ public class BIIB extends javax.swing.JFrame {
         });
         
         
-        showNextPanel();
+        showPanel(currentPanelIndex);
     }
     
     private void setButtonIcon(JButton button, String imagePath, String pressedImagePath) {
@@ -99,25 +99,40 @@ public class BIIB extends javax.swing.JFrame {
         timer.start();
     }
 
+    private void showPanel(int index) {
+        try {
+            // Instanciar el panel
+            JPanel panel = (JPanel) panelClasses[index].getDeclaredConstructor().newInstance();
+            panel.setSize(680, 420);
+            panel.setLocation(0, 0);
+
+            // Actualizar questArea
+            questArea.removeAll();
+            questArea.add(panel, BorderLayout.CENTER);
+            questArea.revalidate();
+            questArea.repaint();
+
+            jlabelNumero.setText((currentPanelIndex + 1) + "/40");
+            
+            // Habilitar/deshabilitar botones
+            btnRetroceder.setEnabled(currentPanelIndex > 0);
+            btnAvanzar.setEnabled(currentPanelIndex < panelClasses.length - 1);
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     private void showNextPanel() {
-        if (currentPanelIndex < panelClasses.length) {
-            try {
-                // Instanciar el siguiente panel
-                JPanel nextPanel = (JPanel) panelClasses[currentPanelIndex].getDeclaredConstructor().newInstance();
-                nextPanel.setSize(680, 420);
-                nextPanel.setLocation(0, 0);
+        if (currentPanelIndex < panelClasses.length - 1) {
+            currentPanelIndex++;
+            showPanel(currentPanelIndex);
+        }
+    }
 
-                // Actualizar questArea
-                questArea.removeAll();
-                questArea.add(nextPanel, BorderLayout.CENTER);
-                questArea.revalidate();
-                questArea.repaint();
-
-                // Incrementar el índice del panel
-                currentPanelIndex++;
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
-                ex.printStackTrace();
-            }
+    private void showPreviousPanel() {
+        if (currentPanelIndex > 0) {
+            currentPanelIndex--;
+            showPanel(currentPanelIndex);
         }
     }
     
@@ -153,7 +168,7 @@ public class BIIB extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnRetroceder = new javax.swing.JButton();
         btnAvanzar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jlabelNumero = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -328,6 +343,11 @@ public class BIIB extends javax.swing.JFrame {
         btnRetroceder.setBorderPainted(false);
         btnRetroceder.setContentAreaFilled(false);
         btnRetroceder.setFocusPainted(false);
+        btnRetroceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetrocederActionPerformed(evt);
+            }
+        });
 
         btnAvanzar.setBorder(null);
         btnAvanzar.setBorderPainted(false);
@@ -339,8 +359,8 @@ public class BIIB extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("1/40");
+        jlabelNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabelNumero.setText("1/40");
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -363,7 +383,7 @@ public class BIIB extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -389,7 +409,7 @@ public class BIIB extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -410,6 +430,10 @@ public class BIIB extends javax.swing.JFrame {
         this.setVisible(false);
         menu.setVisible(true);
     }//GEN-LAST:event_btnVolverBActionPerformed
+
+    private void btnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederActionPerformed
+        showPreviousPanel();
+    }//GEN-LAST:event_btnRetrocederActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,7 +489,6 @@ public class BIIB extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -475,6 +498,7 @@ public class BIIB extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jlabelNumero;
     private javax.swing.ButtonGroup p1_bg;
     private javax.swing.JPanel questArea;
     // End of variables declaration//GEN-END:variables

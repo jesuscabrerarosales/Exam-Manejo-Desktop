@@ -61,7 +61,7 @@ public class BIIA extends javax.swing.JFrame {
             }
         });
         
-        showNextPanel();
+        showPanel(currentPanelIndex);
     }
     private void setButtonIcon(JButton button, String imagePath, String pressedImagePath) {
         // Cargar la imagen desde los recursos
@@ -114,6 +114,8 @@ public class BIIA extends javax.swing.JFrame {
             questArea.revalidate();
             questArea.repaint();
 
+            jlabelNumero.setText((currentPanelIndex + 1) + "/40");
+            
             // Habilitar/deshabilitar botones
             btnRetroceder.setEnabled(currentPanelIndex > 0);
             btnAvanzar.setEnabled(currentPanelIndex < panelClasses.length - 1);
@@ -371,6 +373,11 @@ public class BIIA extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Finalizar Examen");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 0, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -453,6 +460,10 @@ public class BIIA extends javax.swing.JFrame {
     private void btnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederActionPerformed
         showPreviousPanel();
     }//GEN-LAST:event_btnRetrocederActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
