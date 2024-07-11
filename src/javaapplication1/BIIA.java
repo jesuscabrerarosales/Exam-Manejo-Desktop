@@ -101,29 +101,41 @@ public class BIIA extends javax.swing.JFrame {
         timer.start();
     }
     
-    private void showNextPanel() {
-        if (currentPanelIndex < panelClasses.length) {
-            try {
-                // Instanciar el siguiente panel
-                JPanel nextPanel = (JPanel) panelClasses[currentPanelIndex].getDeclaredConstructor().newInstance();
-                nextPanel.setSize(680, 420);
-                nextPanel.setLocation(0, 0);
+    private void showPanel(int index) {
+        try {
+            // Instanciar el panel
+            JPanel panel = (JPanel) panelClasses[index].getDeclaredConstructor().newInstance();
+            panel.setSize(680, 420);
+            panel.setLocation(0, 0);
 
-                // Actualizar questArea
-                questArea.removeAll();
-                questArea.add(nextPanel, BorderLayout.CENTER);
-                questArea.revalidate();
-                questArea.repaint();
+            // Actualizar questArea
+            questArea.removeAll();
+            questArea.add(panel, BorderLayout.CENTER);
+            questArea.revalidate();
+            questArea.repaint();
 
-                // Incrementar el índice del panel
-                currentPanelIndex++;
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
-                ex.printStackTrace();
-            }
+            // Habilitar/deshabilitar botones
+            btnRetroceder.setEnabled(currentPanelIndex > 0);
+            btnAvanzar.setEnabled(currentPanelIndex < panelClasses.length - 1);
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
+            ex.printStackTrace();
         }
     }
-    
-    
+
+    private void showNextPanel() {
+        if (currentPanelIndex < panelClasses.length - 1) {
+            currentPanelIndex++;
+            showPanel(currentPanelIndex);
+        }
+    }
+
+    private void showPreviousPanel() {
+        if (currentPanelIndex > 0) {
+            currentPanelIndex--;
+            showPanel(currentPanelIndex);
+        }
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,8 +167,9 @@ public class BIIA extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnAvanzar = new javax.swing.JButton();
         btnRetroceder = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jlabelNumero = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -188,9 +201,13 @@ public class BIIA extends javax.swing.JFrame {
 
         jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("\n1.- Respecto de los dispositivos de control o regulación del \ntránsito:\n\n2.- La señal vertical reglamentaria R-6 “prohibido voltear a la \nizquierda”, significa que:\n\n3.- La señal vertical reglamentaria R-3 significa que:\n\n4.- En las vías, las marcas en el pavimento que son del tipo \ncentral discontinua y de color amarillo significan que:\n\n5.- El color ámbar o amarillo del semáforo significa que:\n\n6.- Los colores del semáforo tienen el siguiente significado: \nrojo:_____; ámbar o amarillo: _____; verde:___.\n\n7.- ¿Qué indica una flecha verde en un semáforo vehicular?\n\n8.- La siguiente señal vertical reglamentaria R-53:\n\n9.- Si llega a una intersección y visualiza el semáforo con una \nflecha roja hacia la izquierda y la luz circular verde prendidas \nal mismo tiempo, la acción correcta es:\n\n10.- Si llega a una intersección donde el semáforo muestra \nuna luz intermitente, qué afirmación es correcta:\n\n11.- ¿La luz intermitente roja es igual que una señal de PARE?\n\n12.- Al aproximarse a una intersección con giro permitido a la \nizquierda, la conducta correcta es:\n\n13.- Al cambiar de carril en una vía de un solo sentido con \nmúltiples carriles, ¿cuál es la conducta correcta?\n\n14.- Respecto a los cruces a nivel con vías férreas, señale la \nafirmación correcta:\n\n15.- Ante la señal de color rojo del semáforo y la indicación \nde continuar la marcha del efectivo de la Policía Nacional del \nPerú asignado al control del tránsito, corresponde:\n\n16.- Está prohibido estacionar un vehículo:\n\n17.- La siguiente señal vertical reglamentaria (R-29:\n\n18.- Se le impondrá el pago de una multa y no podrá obtener \nla licencia de conducir por 3 años a la persona que:\n\n 19.- En el supuesto que se encuentre manejando y un vehículo \nque tiene la intención de sobrepasarlo o adelantarlo lo alcance, \n¿qué debería hacer usted?\n\n20.- ¿Cuál de las siguientes afi rmaciones es correcta?\n\n21.- En la circulación vehicular, es correcto afi rmar que:\n\n22.- En caso de accidentes, el SOAT cubre los daños que sufren:\n\n23.- ¿Cuál de los siguientes seguros es exigible para conducir un \nvehículo automotor?\n\n24.- Cuándo es obligatorio darle preferencia de paso a un vehículo \nde emergencia o vehículo oficial:\n\n25.- Si por el carril por donde está conduciendo se aproxima a un \nvehículo de transporte escolar que se encuentra detenido, recogiendo \no dejando escolares ¿Qué debe hacer?\n\n26.- ¿Qué signifi ca un triángulo rojo de seguridad colocado en la calzada?\n\n27.- ¿En la conducción vehicular, existe excepción a la obligación de \nconservar la distancia obligatoria entre vehículos?\n\n28.- En intersecciones que no tienen señales de Pare, Ceda el Paso o \nSemáforo, ¿las vías de doble sentido tienen prioridad de paso respecto \na las vías de un solo sentido de igual clasificación?\n\n29.- Si usted se aproxima a una señal de PARE colocada verticalmente \no pintada en la vía, la acción correcta es:\n\n30.- ¿Cuál es la diferencia entre las señales P-2A y P-1A?\n\n31.- ¿Qué indica la señal R-30F?\n\n32.- ¿Que indica la siguiente señal R-23?\n\n33.- Si dos vehículos se aproximan simultáneamente a una intersección \nno regulada (sin señalización) procedentes de vías diferentes, ¿quién \ntiene preferencia de paso?\n\n34.- En una intersección no regulada (sin señalización) tiene preferencia \nde paso:\n\n35.- En una rotonda, tiene prioridad de paso el vehículo que:\n\n36.- El sobrepaso o adelantamiento de un vehículo en movimiento \nse efectúa, salvo excepciones, por la _________ retornando el vehículo \ndespués de la maniobra a su carril original.\n\n37.- Si un conductor está tomando medicamentos y por ello siente \nsueño ¿qué debe hacer?\n\n38.- Son documentos que deben portarse obligatoriamente, durante \nla conducción del vehículo, y exhibirse cuando la autoridad competente \nlo solicite:\n\n39.- La siguiente señal indica:\n\n40.- Al cambiar de dirección, un conductor debe:");
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -238,7 +255,7 @@ public class BIIA extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Examen de Conocimientos - CATEGORIA BIIA");
+        jLabel1.setText("Examen de Conocimientos - CATEGORIA (B) II-A");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mtcLogo.png"))); // NOI18N
@@ -248,21 +265,20 @@ public class BIIA extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(373, 373, 373)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addGap(98, 98, 98)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -315,7 +331,7 @@ public class BIIA extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(243, 243, 243)
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,14 +363,20 @@ public class BIIA extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("1/40");
+        jlabelNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlabelNumero.setText("1/40");
 
         jButton1.setBackground(new java.awt.Color(250, 23, 23));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Finalizar Examen");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Ayuda tecnica");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -373,10 +395,12 @@ public class BIIA extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24)
                                 .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,12 +420,17 @@ public class BIIA extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -422,7 +451,7 @@ public class BIIA extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederActionPerformed
-        //showPreviousPanel();
+        showPreviousPanel();
     }//GEN-LAST:event_btnRetrocederActionPerformed
 
     /**
@@ -469,13 +498,13 @@ public class BIIA extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel cuentaRegresiva;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -485,6 +514,7 @@ public class BIIA extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jlabelNumero;
     private javax.swing.ButtonGroup p1_bg;
     private javax.swing.JPanel questArea;
     // End of variables declaration//GEN-END:variables
