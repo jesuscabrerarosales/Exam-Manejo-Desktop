@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.lang.reflect.InvocationTargetException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -41,6 +42,10 @@ public class BIIA extends javax.swing.JFrame {
         ImageIcon img2= new ImageIcon(getClass().getResource("/img/3125623.png"));
         Icon fnd2 = new ImageIcon(img2.getImage().getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_DEFAULT));
         jLabel3.setIcon(fnd2);
+        
+        setButtonIcon(btnAvanzar, "/img/flecha_avanzar.png", "/img/flecha_avanzar_activado.png");
+        setButtonIcon(btnRetroceder, "/img/flecha_retroceder.png", "/img/flecha_retroceder_activado.png");
+        
         this.repaint();
         // Initialize cuentaRegresiva  = new JLabel("40:00");
         cuentaRegresiva.setText("40:00");
@@ -58,6 +63,23 @@ public class BIIA extends javax.swing.JFrame {
         
         showNextPanel();
     }
+    private void setButtonIcon(JButton button, String imagePath, String pressedImagePath) {
+        // Cargar la imagen desde los recursos
+        ImageIcon img = new ImageIcon(getClass().getResource(imagePath));
+
+        // Escalar la imagen al tamaño del botón
+        Icon icon = new ImageIcon(img.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_DEFAULT));
+
+        // Establecer la imagen escalada como el icono del botón
+        button.setIcon(icon);
+        
+        ImageIcon pressedImg = new ImageIcon(getClass().getResource(pressedImagePath));
+        // Escalar la imagen al tamaño del botón
+        Icon pressedIcon = new ImageIcon(pressedImg.getImage().getScaledInstance(button.getWidth(), button.getHeight(), Image.SCALE_DEFAULT));
+        // Establecer la imagen escalada como el icono presionado del botón
+        button.setPressedIcon(pressedIcon);
+    }
+    
 
     private void startTimer() {
         timer = new Timer(1000, new ActionListener() {
@@ -101,28 +123,7 @@ public class BIIA extends javax.swing.JFrame {
         }
     }
     
-    private void showPreviousPanel() {
-    if (currentPanelIndex > 0) {
-        try {
-            // Decrementar el índice del panel
-            currentPanelIndex--;
-
-            // Instanciar el panel anterior
-            JPanel previousPanel = (JPanel) panelClasses[currentPanelIndex].getDeclaredConstructor().newInstance();
-            previousPanel.setSize(680, 420);
-            previousPanel.setLocation(0, 0);
-
-            // Actualizar questArea
-            questArea.removeAll();
-            questArea.add(previousPanel, BorderLayout.CENTER);
-            questArea.revalidate();
-            questArea.repaint();
-
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
-            ex.printStackTrace();
-        }
-    }
-}
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,8 +154,9 @@ public class BIIA extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnAvanzar = new javax.swing.JButton();
-        p1_btn_volver = new javax.swing.JButton();
+        btnRetroceder = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -236,7 +238,7 @@ public class BIIA extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Examen de Conocimientos - CATEGORIA AI");
+        jLabel1.setText("Examen de Conocimientos - CATEGORIA BIIA");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mtcLogo.png"))); // NOI18N
@@ -248,7 +250,7 @@ public class BIIA extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(373, 373, 373)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -302,7 +304,7 @@ public class BIIA extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Desarrollado por la Oficina General de Tecnologia de la Informacion OGTI - Ministerio de Transporte y Comunicaciones @2024");
+        jLabel8.setText("Desarrollado por la Oficina General de Tecnologia de la Informacion OGTI - Ministerio de Transporte y Comunicaciones - @2024 (v 1.0.1)");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -325,22 +327,34 @@ public class BIIA extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        btnAvanzar.setText("Avanzar");
+        btnAvanzar.setBorderPainted(false);
+        btnAvanzar.setContentAreaFilled(false);
+        btnAvanzar.setFocusPainted(false);
+        btnAvanzar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/flecha_avanzar_activado.png"))); // NOI18N
         btnAvanzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAvanzarActionPerformed(evt);
             }
         });
 
-        p1_btn_volver.setText("Retroceder");
-        p1_btn_volver.addActionListener(new java.awt.event.ActionListener() {
+        btnRetroceder.setBorder(null);
+        btnRetroceder.setBorderPainted(false);
+        btnRetroceder.setContentAreaFilled(false);
+        btnRetroceder.setFocusPainted(false);
+        btnRetroceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p1_btn_volverActionPerformed(evt);
+                btnRetrocederActionPerformed(evt);
             }
         });
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("1/40");
+
+        jButton1.setBackground(new java.awt.Color(250, 23, 23));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Finalizar Examen");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -349,17 +363,24 @@ public class BIIA extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(p1_btn_volver)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(164, 164, 164))))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -375,12 +396,14 @@ public class BIIA extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p1_btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 64, Short.MAX_VALUE)))
+                            .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -392,15 +415,15 @@ public class BIIA extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvanzarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuCategorias menu = new MenuCategorias();
+        Login menu = new Login();
         menu.setLocationRelativeTo(null);
         this.setVisible(false);
         menu.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void p1_btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1_btn_volverActionPerformed
+    private void btnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederActionPerformed
         //showPreviousPanel();
-    }//GEN-LAST:event_p1_btn_volverActionPerformed
+    }//GEN-LAST:event_btnRetrocederActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,8 +465,10 @@ public class BIIA extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvanzar;
+    private javax.swing.JButton btnRetroceder;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel cuentaRegresiva;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -461,7 +486,6 @@ public class BIIA extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.ButtonGroup p1_bg;
-    private javax.swing.JButton p1_btn_volver;
     private javax.swing.JPanel questArea;
     // End of variables declaration//GEN-END:variables
 }
