@@ -178,7 +178,7 @@ public class BIIB extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(169, 30, 30));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("POSTULANTE");
 
@@ -247,7 +247,7 @@ public class BIIB extends javax.swing.JFrame {
                 .addComponent(jScrollPane1))
         );
 
-        jPanel2.setBackground(new java.awt.Color(226, 24, 24));
+        jPanel2.setBackground(new java.awt.Color(169, 30, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,7 +285,7 @@ public class BIIB extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setForeground(new java.awt.Color(228, 25, 25));
+        jLabel5.setForeground(new java.awt.Color(169, 30, 30));
         jLabel5.setText("Tiempo restante:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -308,7 +308,7 @@ public class BIIB extends javax.swing.JFrame {
             .addComponent(cuentaRegresiva, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel5.setBackground(new java.awt.Color(228, 25, 25));
+        jPanel5.setBackground(new java.awt.Color(169, 30, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -362,7 +362,7 @@ public class BIIB extends javax.swing.JFrame {
         jlabelNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlabelNumero.setText("1/40");
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setBackground(new java.awt.Color(169, 30, 30));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Finalizar Examen");
 

@@ -181,7 +181,7 @@ public class BIIA extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(169, 30, 30));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("POSTULANTE");
 
@@ -252,7 +252,7 @@ public class BIIA extends javax.swing.JFrame {
                 .addComponent(jScrollPane2))
         );
 
-        jPanel2.setBackground(new java.awt.Color(226, 24, 24));
+        jPanel2.setBackground(new java.awt.Color(169, 30, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -290,7 +290,7 @@ public class BIIA extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(228, 25, 25));
+        jLabel5.setForeground(new java.awt.Color(169, 30, 30));
         jLabel5.setText("Tiempo restante:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -314,7 +314,7 @@ public class BIIA extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(228, 25, 25));
+        jPanel5.setBackground(new java.awt.Color(169, 30, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,7 +368,7 @@ public class BIIA extends javax.swing.JFrame {
         jlabelNumero.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlabelNumero.setText("1/40");
 
-        jButton1.setBackground(new java.awt.Color(250, 23, 23));
+        jButton1.setBackground(new java.awt.Color(169, 30, 30));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Finalizar Examen");
@@ -379,7 +379,7 @@ public class BIIA extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setBackground(new java.awt.Color(169, 30, 30));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Ayuda tecnica");
@@ -430,8 +430,8 @@ public class BIIA extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnRetroceder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
