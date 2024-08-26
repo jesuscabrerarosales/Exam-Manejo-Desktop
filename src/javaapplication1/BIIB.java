@@ -42,6 +42,32 @@ public class BIIB extends javax.swing.JFrame {
         Icon fnd2 = new ImageIcon(img2.getImage().getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_DEFAULT));
         jLabel3.setIcon(fnd2);
         this.repaint();
+        
+        ImageIcon img3= new ImageIcon(getClass().getResource("/img/ip.png"));
+        Icon fnd3 = new ImageIcon(img3.getImage().getScaledInstance(jLabelIp.getWidth(), jLabelIp.getHeight(), Image.SCALE_DEFAULT));
+        jLabelIp.setIcon(fnd3);
+        this.repaint();
+        
+        ImageIcon img4= new ImageIcon(getClass().getResource("/img/puerto.png"));
+        Icon fnd4 = new ImageIcon(img4.getImage().getScaledInstance(jLabelMac.getWidth(), jLabelMac.getHeight(), Image.SCALE_DEFAULT));
+        jLabelMac.setIcon(fnd4);
+        this.repaint();
+        
+        ImageIcon img5= new ImageIcon(getClass().getResource("/img/huella.png"));
+        Icon fnd5 = new ImageIcon(img5.getImage().getScaledInstance(jLabelHuella.getWidth(), jLabelHuella.getHeight(), Image.SCALE_DEFAULT));
+        jLabelHuella.setIcon(fnd5);
+        this.repaint();
+        
+        ImageIcon img6= new ImageIcon(getClass().getResource("/img/da.png"));
+        Icon fnd6 = new ImageIcon(img6.getImage().getScaledInstance(jLabelDa.getWidth(), jLabelDa.getHeight(), Image.SCALE_DEFAULT));
+        jLabelDa.setIcon(fnd6);
+        this.repaint();
+        
+        ImageIcon img7= new ImageIcon(getClass().getResource("/img/led.png"));
+        Icon fnd7 = new ImageIcon(img7.getImage().getScaledInstance(jLabelLed.getWidth(), jLabelLed.getHeight(), Image.SCALE_DEFAULT));
+        jLabelLed.setIcon(fnd7);
+        this.repaint();
+        
         // Initialize cuentaRegresiva  = new JLabel("40:00");
         cuentaRegresiva.setText("40:00");
         cuentaRegresiva.setFont(new java.awt.Font("Segoe UI", 1, 24)); // Ajusta la fuente según sea necesario
@@ -164,8 +190,15 @@ public class BIIB extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         cuentaRegresiva = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabelPuerto = new javax.swing.JLabel();
+        jLabelTextoDa = new javax.swing.JLabel();
+        jLabelMacNumber = new javax.swing.JLabel();
+        jLabelIp = new javax.swing.JLabel();
+        jLabelMac = new javax.swing.JLabel();
+        jLabelHuella = new javax.swing.JLabel();
+        jLabelDa = new javax.swing.JLabel();
+        jLabelLed = new javax.swing.JLabel();
+        jLabelNumeros = new javax.swing.JLabel();
         btnRetroceder = new javax.swing.JButton();
         btnAvanzar = new javax.swing.JButton();
         jlabelNumero = new javax.swing.JLabel();
@@ -310,33 +343,75 @@ public class BIIB extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(169, 30, 30));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("192.168.0.34");
+        jLabelPuerto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelPuerto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPuerto.setText("192.168.24.11");
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Desarrollado por la Oficina General de Tecnologia de la Informacion OGTI - Ministerio de Transporte y Comunicaciones @2024");
+        jLabelTextoDa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelTextoDa.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTextoDa.setText("Desarrollado por la Oficina General de Tecnologia de la Informacion OGTI - Ministerio de Transporte y Comunicaciones @2024");
+
+        jLabelMacNumber.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelMacNumber.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMacNumber.setText("04-33-C2-22-15-OA");
+
+        jLabelIp.setText("jLabel10");
+
+        jLabelMac.setText("jLabel10");
+
+        jLabelHuella.setText("jLabel10");
+
+        jLabelDa.setText("jLabel10");
+
+        jLabelLed.setText("jLabel10");
+
+        jLabelNumeros.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelNumeros.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNumeros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNumeros.setText("1.0.0.508");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel7)
-                .addGap(147, 147, 147)
-                .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelIp, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPuerto)
+                .addGap(40, 40, 40)
+                .addComponent(jLabelMac, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelMacNumber)
+                .addGap(44, 44, 44)
+                .addComponent(jLabelHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161)
+                .addComponent(jLabelDa, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelTextoDa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelLed, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabelNumeros)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelHuella, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelLed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelPuerto)
+                            .addComponent(jLabelMacNumber)
+                            .addComponent(jLabelIp)
+                            .addComponent(jLabelNumeros)
+                            .addComponent(jLabelTextoDa)
+                            .addComponent(jLabelMac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelDa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(5, 5, 5))))
         );
 
         btnRetroceder.setBorder(null);
@@ -365,6 +440,11 @@ public class BIIB extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(169, 30, 30));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Finalizar Examen");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -380,17 +460,17 @@ public class BIIB extends javax.swing.JFrame {
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(questArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(416, 416, 416))))
+                        .addGap(256, 256, 256))))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -403,17 +483,19 @@ public class BIIB extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
+                        .addGap(41, 41, 41)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -434,6 +516,22 @@ public class BIIB extends javax.swing.JFrame {
     private void btnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederActionPerformed
         showPreviousPanel();
     }//GEN-LAST:event_btnRetrocederActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Mostrar un cuadro de diálogo de confirmación
+    int respuesta = JOptionPane.showConfirmDialog(
+        null, 
+        "¿Estás seguro de que quieres salir?", 
+        "Confirmar salida", 
+        JOptionPane.YES_NO_OPTION
+    );
+
+    // Verificar la respuesta del usuario
+    if (respuesta == JOptionPane.YES_OPTION) {
+        System.exit(0); // Salir de la aplicación si el usuario confirma
+    }
+    // Si el usuario selecciona NO, no hacer nada
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,9 +587,16 @@ public class BIIB extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelDa;
+    private javax.swing.JLabel jLabelHuella;
+    private javax.swing.JLabel jLabelIp;
+    private javax.swing.JLabel jLabelLed;
+    private javax.swing.JLabel jLabelMac;
+    private javax.swing.JLabel jLabelMacNumber;
+    private javax.swing.JLabel jLabelNumeros;
+    private javax.swing.JLabel jLabelPuerto;
+    private javax.swing.JLabel jLabelTextoDa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

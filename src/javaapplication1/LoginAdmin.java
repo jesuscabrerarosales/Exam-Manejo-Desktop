@@ -5,8 +5,11 @@
 package javaapplication1;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,14 +35,55 @@ public class LoginAdmin extends javax.swing.JFrame {
         this.repaint();
         
         ImageIcon img3= new ImageIcon(getClass().getResource("/img/ip.png"));
-        Icon fnd3 = new ImageIcon(img3.getImage().getScaledInstance(jLabel10.getWidth(), jLabel10.getHeight(), Image.SCALE_DEFAULT));
-        jLabel10.setIcon(fnd3);
+        Icon fnd3 = new ImageIcon(img3.getImage().getScaledInstance(jLabelIp.getWidth(), jLabelIp.getHeight(), Image.SCALE_DEFAULT));
+        jLabelIp.setIcon(fnd3);
         this.repaint();
         
         ImageIcon img4= new ImageIcon(getClass().getResource("/img/puerto.png"));
-        Icon fnd4 = new ImageIcon(img4.getImage().getScaledInstance(jLabel11.getWidth(), jLabel11.getHeight(), Image.SCALE_DEFAULT));
-        jLabel11.setIcon(fnd4);
+        Icon fnd4 = new ImageIcon(img4.getImage().getScaledInstance(jLabelMac.getWidth(), jLabelMac.getHeight(), Image.SCALE_DEFAULT));
+        jLabelMac.setIcon(fnd4);
         this.repaint();
+        
+        ImageIcon img5= new ImageIcon(getClass().getResource("/img/huella.png"));
+        Icon fnd5 = new ImageIcon(img5.getImage().getScaledInstance(jLabelHuella.getWidth(), jLabelHuella.getHeight(), Image.SCALE_DEFAULT));
+        jLabelHuella.setIcon(fnd5);
+        this.repaint();
+        
+        ImageIcon img6= new ImageIcon(getClass().getResource("/img/da.png"));
+        Icon fnd6 = new ImageIcon(img6.getImage().getScaledInstance(jLabelDa.getWidth(), jLabelDa.getHeight(), Image.SCALE_DEFAULT));
+        jLabelDa.setIcon(fnd6);
+        this.repaint();
+        
+        ImageIcon img7= new ImageIcon(getClass().getResource("/img/led.png"));
+        Icon fnd7 = new ImageIcon(img7.getImage().getScaledInstance(jLabelLed.getWidth(), jLabelLed.getHeight(), Image.SCALE_DEFAULT));
+        jLabelLed.setIcon(fnd7);
+        this.repaint();
+        
+        // Añadir ActionListener al JComboBox
+        jComboNav.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Obtener la opción seleccionada
+                String selectedOption = (String) jComboNav.getSelectedItem();
+
+                // Verificar si la opción es "Salir"
+                if ("Salir".equals(selectedOption)) {
+                    // Mostrar un cuadro de diálogo de confirmación
+                    int confirm = JOptionPane.showConfirmDialog(
+                            LoginAdmin.this,
+                            "¿Está seguro que desea salir?",
+                            "Confirmar salida",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+
+                    // Si el usuario elige "Sí", cerrar la aplicación
+                    if (confirm == JOptionPane.YES_OPTION) {
+                        System.exit(0);
+                    }}
+            }
+        });
+
     }
 
     /**
@@ -65,17 +109,17 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboNav = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLabelPuerto = new javax.swing.JLabel();
+        jLabelTextoDa = new javax.swing.JLabel();
+        jLabelMacNumber = new javax.swing.JLabel();
+        jLabelIp = new javax.swing.JLabel();
+        jLabelMac = new javax.swing.JLabel();
+        jLabelHuella = new javax.swing.JLabel();
+        jLabelDa = new javax.swing.JLabel();
+        jLabelLed = new javax.swing.JLabel();
+        jLabelNumeros = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,8 +222,8 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("SNC");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":", "Salir" }));
-        jComboBox2.setBorder(null);
+        jComboNav.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":", "Salir" }));
+        jComboNav.setBorder(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -189,11 +233,11 @@ public class LoginAdmin extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(129, 129, 129)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboNav, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
@@ -212,35 +256,38 @@ public class LoginAdmin extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboNav, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(169, 30, 30));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("192.168.24.11");
+        jLabelPuerto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelPuerto.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPuerto.setText("192.168.24.11");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Desarrollado por la Oficina General de Tecnologia de la Informacion OGTI - Ministerio de Transporte y Comunicaciones @2024");
+        jLabelTextoDa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelTextoDa.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTextoDa.setText("Desarrollado por la Oficina General de Tecnologia de la Informacion OGTI - Ministerio de Transporte y Comunicaciones @2024");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("04-33-C2-22-15-OA");
+        jLabelMacNumber.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelMacNumber.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMacNumber.setText("04-33-C2-22-15-OA");
 
-        jLabel10.setText("jLabel10");
+        jLabelIp.setText("jLabel10");
 
-        jLabel11.setText("jLabel10");
+        jLabelMac.setText("jLabel10");
 
-        jLabel12.setText("jLabel10");
+        jLabelHuella.setText("jLabel10");
 
-        jLabel13.setText("jLabel10");
+        jLabelDa.setText("jLabel10");
 
-        jLabel14.setText("jLabel10");
+        jLabelLed.setText("jLabel10");
 
-        jLabel15.setText("jLabel10");
+        jLabelNumeros.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelNumeros.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNumeros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelNumeros.setText("1.0.0.508");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -248,40 +295,42 @@ public class LoginAdmin extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelIp, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(jLabelPuerto)
                 .addGap(40, 40, 40)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelMac, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel12)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel13)
-                .addGap(67, 67, 67)
-                .addComponent(jLabel5)
+                .addComponent(jLabelMacNumber)
+                .addGap(44, 44, 44)
+                .addComponent(jLabelHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161)
+                .addComponent(jLabelDa, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelTextoDa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
+                .addComponent(jLabelLed, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabelNumeros)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelHuella, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelLed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelPuerto)
+                            .addComponent(jLabelMacNumber)
+                            .addComponent(jLabelIp)
+                            .addComponent(jLabelNumeros)
+                            .addComponent(jLabelTextoDa)
+                            .addComponent(jLabelMac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelDa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(5, 5, 5))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,7 +346,7 @@ public class LoginAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -359,22 +408,22 @@ public class LoginAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboNav;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelDa;
+    private javax.swing.JLabel jLabelHuella;
+    private javax.swing.JLabel jLabelIp;
+    private javax.swing.JLabel jLabelLed;
+    private javax.swing.JLabel jLabelMac;
+    private javax.swing.JLabel jLabelMacNumber;
+    private javax.swing.JLabel jLabelNumeros;
+    private javax.swing.JLabel jLabelPuerto;
+    private javax.swing.JLabel jLabelTextoDa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
