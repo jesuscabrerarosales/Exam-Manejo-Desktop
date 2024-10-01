@@ -7,6 +7,8 @@ package javaapplication1;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -17,9 +19,30 @@ import javax.swing.JOptionPane;
  */
 public class LoginAdmin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    private static final String[] CONTRASENAS = 
+    {"losAngeles", 
+        "loSangeles2", 
+        "LosAngeles03", 
+        "LOSangeles4", 
+        "losANGELES005", 
+        "LOSANGELES6", 
+        "7losangeles", 
+        "08LosAngeles", 
+        "09lOSaNGELES", 
+        "10LOSANGELES10"};
+    private static final Date[] FECHAS_EXPIRACION;
+    
+    static {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2024, Calendar.OCTOBER, 1);
+        FECHAS_EXPIRACION = new Date[CONTRASENAS.length];
+        
+        for (int i = 0; i < CONTRASENAS.length; i++) {
+            FECHAS_EXPIRACION[i] = calendar.getTime();
+            calendar.add(Calendar.MONTH, 1);
+        }
+    }
+    
     public LoginAdmin() {
         initComponents();
         this.setExtendedState(this.MAXIMIZED_BOTH);
@@ -101,8 +124,8 @@ public class LoginAdmin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jtxtPassword = new javax.swing.JTextField();
+        jtxtUsuario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -147,18 +170,18 @@ public class LoginAdmin extends javax.swing.JFrame {
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtxtPassword.setBorder(null);
+        jtxtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtxtPasswordActionPerformed(evt);
             }
         });
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField2.setBorder(null);
+        jtxtUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtxtUsuario.setBorder(null);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-        jLabel6.setText("Nº de Documento");
+        jLabel6.setText("Usuario");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         jLabel7.setText("Contraseña");
@@ -177,8 +200,8 @@ public class LoginAdmin extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
+                    .addComponent(jtxtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                    .addComponent(jtxtUsuario)
                     .addComponent(jLabel6)
                     .addComponent(jSeparator2))
                 .addContainerGap(64, Short.MAX_VALUE))
@@ -191,7 +214,7 @@ public class LoginAdmin extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
@@ -201,7 +224,7 @@ public class LoginAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addGap(1, 1, 1)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -354,20 +377,49 @@ public class LoginAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtxtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtxtPasswordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-              
-        Login login = new Login();
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
+        
+        String usuario = jtxtUsuario.getText();
+        String password = jtxtPassword.getText();
+        if (validateCredentials(usuario, password)) {
+            Login login = new Login();
+            login.setLocationRelativeTo(null);
+            login.setVisible(true);
+            this.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        //jtxtUsuario.getText();
+        //jtxtPassword.getText();
+        //Login login = new Login();
+        //login.setLocationRelativeTo(null);
+        //login.setVisible(true);
 
         // Cerrar el JFrame actual (MenuCategorias)
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private boolean validateCredentials(String usuario, String password) {
+        // Verificar si la contraseña es válida y no ha expirado
+        Date currentDate = new Date();
+        if (!"admin".equals(usuario)) {
+            return false;
+        }else if("admin".equals(usuario)){
+        
+        for (int i = 0; i < CONTRASENAS.length; i++) {
+            if (CONTRASENAS[i].equals(password) && currentDate.before(FECHAS_EXPIRACION[i])) {
+                return true;
+            }
+        }
+        }
+        return false;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -430,7 +482,7 @@ public class LoginAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jtxtPassword;
+    private javax.swing.JTextField jtxtUsuario;
     // End of variables declaration//GEN-END:variables
 }
