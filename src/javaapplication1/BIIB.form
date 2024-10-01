@@ -76,8 +76,8 @@
                           <Group type="102" attributes="0">
                               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="questArea" min="-2" pref="372" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="questArea" min="-2" pref="441" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="btnAvanzar" min="-2" pref="52" max="-2" attributes="0"/>
                                   <Component id="jlabelNumero" min="-2" pref="40" max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
                           </Group>
                           <Component id="btnRetroceder" min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="74" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
@@ -268,7 +268,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Examen de Conocimientos - CATEGORIA (B) II-B"/>
+            <Property name="text" type="java.lang.String" value="Examen de Conocimientos - CATEGORIA B"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -301,7 +301,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="860" max="32767" attributes="0"/>
+                  <EmptySpace pref="885" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="cuentaRegresiva" min="-2" pref="106" max="-2" attributes="0"/>

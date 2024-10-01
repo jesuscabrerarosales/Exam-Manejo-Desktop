@@ -285,7 +285,7 @@ public class BIIB extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Examen de Conocimientos - CATEGORIA (B) II-B");
+        jLabel1.setText("Examen de Conocimientos - CATEGORIA B");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mtcLogo.png"))); // NOI18N
@@ -326,7 +326,7 @@ public class BIIB extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(860, Short.MAX_VALUE)
+                .addContainerGap(885, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(32, 32, 32)
                 .addComponent(cuentaRegresiva, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,13 +487,13 @@ public class BIIB extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
+                                .addComponent(questArea, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnAvanzar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlabelNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnRetroceder, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -507,7 +507,7 @@ public class BIIB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAvanzarActionPerformed
 
     private void btnVolverBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverBActionPerformed
-        Login menu = new Login();
+        LoginUsuario menu = new LoginUsuario("B");
         menu.setLocationRelativeTo(null);
         this.setVisible(false);
         menu.setVisible(true);
@@ -521,16 +521,21 @@ public class BIIB extends javax.swing.JFrame {
         // Mostrar un cuadro de diálogo de confirmación
     int respuesta = JOptionPane.showConfirmDialog(
         null, 
-        "¿Estás seguro de que quieres salir?", 
-        "Confirmar salida", 
+        "¿Ya has terminado el examen?", 
+        "Confirmar", 
         JOptionPane.YES_NO_OPTION
     );
 
     // Verificar la respuesta del usuario
     if (respuesta == JOptionPane.YES_OPTION) {
-        System.exit(0); // Salir de la aplicación si el usuario confirma
+        // Redirigir a LoginUsuario si el usuario ha terminado el examen
+        LoginUsuario loginUsuario = new LoginUsuario("B");
+        loginUsuario.setLocationRelativeTo(null);
+        loginUsuario.setVisible(true);
+
+        // Cerrar el JFrame actual (asumimos que es una ventana de examen)
+        this.setVisible(false);
     }
-    // Si el usuario selecciona NO, no hacer nada
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

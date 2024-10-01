@@ -87,9 +87,6 @@ public class quest32 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jlabelQuest02, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(p32_button_aOption))
                     .addGroup(layout.createSequentialGroup()
@@ -100,7 +97,10 @@ public class quest32 extends javax.swing.JPanel {
                         .addComponent(p32_button_cOption))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(p32_button_dOption)))
+                        .addComponent(p32_button_dOption))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jlabelQuest02)))
                 .addGap(0, 588, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,8 +109,8 @@ public class quest32 extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlabelQuest02, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlabelQuest02)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p32_button_aOption)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(p32_button_bOption)
@@ -118,7 +118,7 @@ public class quest32 extends javax.swing.JPanel {
                 .addComponent(p32_button_cOption)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(p32_button_dOption)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

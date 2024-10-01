@@ -91,7 +91,7 @@ public class quest31 extends javax.swing.JPanel {
                             .addComponent(p31_button_dOption)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
-                                .addComponent(jlabelQuest02, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jlabelQuest02, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 545, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
