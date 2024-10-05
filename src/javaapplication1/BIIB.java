@@ -152,7 +152,6 @@ public class BIIB extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btnVolverB = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
@@ -197,13 +196,6 @@ public class BIIB extends javax.swing.JFrame {
 
         jLabel11.setText("PREGUNTAS:");
 
-        btnVolverB.setText("VOLVER");
-        btnVolverB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverBActionPerformed(evt);
-            }
-        });
-
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jTextArea1.setColumns(20);
@@ -224,9 +216,7 @@ public class BIIB extends javax.swing.JFrame {
                         .addGap(99, 99, 99)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(btnVolverB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(85, 85, 85)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -236,13 +226,8 @@ public class BIIB extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVolverB)))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -250,7 +235,7 @@ public class BIIB extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(169, 30, 30));
@@ -479,13 +464,6 @@ public class BIIB extends javax.swing.JFrame {
         showNextPanel();
     }//GEN-LAST:event_btnAvanzarActionPerformed
 
-    private void btnVolverBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverBActionPerformed
-        LoginUsuario menu = new LoginUsuario("B");
-        menu.setLocationRelativeTo(null);
-        this.setVisible(false);
-        menu.setVisible(true);
-    }//GEN-LAST:event_btnVolverBActionPerformed
-
     private void btnRetrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederActionPerformed
         showPreviousPanel();
     }//GEN-LAST:event_btnRetrocederActionPerformed
@@ -549,7 +527,6 @@ public class BIIB extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvanzar;
     private javax.swing.JButton btnRetroceder;
-    private javax.swing.JButton btnVolverB;
     private javax.swing.JLabel cuentaRegresiva;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

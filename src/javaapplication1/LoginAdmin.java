@@ -75,25 +75,7 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabelLed.setIcon(fnd7);
         this.repaint();
         
-        jComboNav.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String selectedOption = (String) jComboNav.getSelectedItem();
-
-                if ("Salir".equals(selectedOption)) {
-                    int confirm = JOptionPane.showConfirmDialog(
-                            LoginAdmin.this,
-                            "¿Está seguro que desea salir?",
-                            "Confirmar salida",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE
-                    );
-
-                    if (confirm == JOptionPane.YES_OPTION) {
-                        System.exit(0);
-                    }}
-            }
-        });
+        
 
     }
 
@@ -115,7 +97,6 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboNav = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabelPuerto = new javax.swing.JLabel();
         jLabelTextoDa = new javax.swing.JLabel();
@@ -228,9 +209,6 @@ public class LoginAdmin extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("SNC");
 
-        jComboNav.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ":", "Salir" }));
-        jComboNav.setBorder(null);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -242,9 +220,7 @@ public class LoginAdmin extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(jComboNav, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(132, 132, 132))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,10 +236,6 @@ public class LoginAdmin extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jComboNav, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(169, 30, 30));
@@ -430,7 +402,6 @@ public class LoginAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboNav;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
