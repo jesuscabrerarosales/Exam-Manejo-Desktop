@@ -1,22 +1,20 @@
-# 🖥️ PRACTICE JS
+# 🖥️ Exam Manejo Desktop – Simulación de Examen de Reglas
 
-This repository contains exercises and practice files focused on learning **Vanilla JavaScript** (plain JavaScript without frameworks).
+Este programa es una **simulación de examen** desarrollada con fines académicos y de práctica.
 
-## 📂 Contents
+## 🛠 Tecnologías
 
-- `practica_01/` — Basic JavaScript fundamentals and syntax
-- `practica_02/` — Intermediate topics and DOM manipulation
-- `practica_03/` — Advanced exercises and event handling
+- Java  
+- Swing (JFrame) – interfaz gráfica de escritorio
 
-## 🎯 Purpose
+## 📋 Descripción
 
-To strengthen core JavaScript skills through hands-on practice and real examples, perfect for beginners and those wanting to deepen their understanding of vanilla JS.
+Una aplicación de escritorio que simula un examen basado en reglas, creada completamente con Java Swing.  
+El proyecto es exclusivamente educativo.
 
-## 🛠️ Technologies
+## ⚠️ Aviso
 
-- JavaScript (ES5/ES6)
-- HTML
-- CSS (basic styling)
+En caso de usar esta simulación, el autor **se deslinda totalmente de cualquier uso malintencionado** o indebido que terceros puedan hacer de la aplicación.
 
 ---
 📜 License
